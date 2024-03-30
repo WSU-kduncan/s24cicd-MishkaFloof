@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Robert Sutton Extra Credit</title>
+	<style>
+		button{
+			padding: 10px;
+			font-size: 16px;
+			border: 2px solid black;
+			color: black;
+			cursor: pointer;
+		}
+		p{
+			padding: 10px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<button id="redBtn">Red</button>
+	<button id="greenBtn">Green</button>
+	<button id="blueBtn">Blue</button>
+	<p id="myParagraph">This is a paragraph.</p>
+
+	<script>
+		// Button Hover and Click Events
+		var redBtn = document.getElementById("redBtn");
+		var greenBtn = document.getElementById("greenBtn");
+		var blueBtn = document.getElementById("blueBtn");
+
+		redBtn.addEventListener("mouseenter", function(){
+			this.style.backgroundColor = "red";
+		});
+
+		greenBtn.addEventListener("mouseenter", function(){
+			this.style.backgroundColor = "green";
+		});
+
+		blueBtn.addEventListener("mouseenter", function(){
+			this.style.backgroundColor = "blue";
+		});
+
+		redBtn.addEventListener("click", function(){
+			this.style.backgroundColor = "red";
+			greenBtn.style.backgroundColor = "";
+			blueBtn.style.backgroundColor = "";
+		});
+
+		greenBtn.addEventListener("click", function(){
+			this.style.backgroundColor = "green";
+			redBtn.style.backgroundColor = "";
+			blueBtn.style.backgroundColor = "";
+		});
+
+		blueBtn.addEventListener("click", function(){
+			this.style.backgroundColor = "blue";
+			redBtn.style.backgroundColor = "";
+			greenBtn.style.backgroundColor = "";
+		});
+
+		// Paragraph Selection Event
+		var myParagraph = document.getElementById("myParagraph");
+
+		myParagraph.addEventListener("mouseup", function(){
+			this.style.backgroundColor = "yellow";
+			this.style.color = "red";
+		});
+
+	</script>
+</body>
+</html>
