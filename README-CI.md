@@ -47,8 +47,6 @@ sudo docker run hello-world
 - Make sure to customize the Dockerfile and website content according to your specific requirements.
 
 
-<<<<<<< HEAD
-=======
 Create DockerHub Account
 Go to DockerHub and sign up for an account.
 Select the Free tier if prompted.
@@ -63,7 +61,6 @@ In your GitHub repository, create a directory named .github/workflows.
 Inside this directory, create a YAML file (e.g., docker-build-push.yml) for your GitHub Actions workflow.
 Configure the workflow to build and push your Docker image to DockerHub. Below is an example workflow YAML:
 
-```
 
 name: Build and Push Docker Image
 
@@ -92,7 +89,6 @@ jobs:
           tag_with_ref: true
 
 
-```
 
 Replace your-dockerhub-username/your-repository-name with your DockerHub username and the name of your DockerHub repository.
 
@@ -126,4 +122,4 @@ Custom variables in the workflow are DOCKERUSERNAME and DOCKERPASSWORD, which ar
 
 
 
->>>>>>> d26c077 (Dockerhub workflow and added documentation)
+
