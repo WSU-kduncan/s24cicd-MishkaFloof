@@ -3,7 +3,7 @@ Part 1 - Dockerize it
 ## CI Project Overview
 This project aims to dockerize a website and set up a web server using Docker. The website files will be served using nginx as the web server.
 
-## Run Project Locally
+## Run Project
 ### Install Docker + Dependencies
 - If using WSL2:
   - Install Docker Desktop for Windows.
@@ -16,10 +16,8 @@ This project aims to dockerize a website and set up a web server using Docker. T
 2. Navigate to the root directory of the repository.
 3. Run the following command to build the Docker image: 'docker build -t my-website-image .'
 
-
 ### Run the Container
 1. After building the Docker image, run the following command to start a container: `docker run -d -p 80:80 my-website-image`
-
 
 ### View the Project Running in the Container
 - Open a web browser.
