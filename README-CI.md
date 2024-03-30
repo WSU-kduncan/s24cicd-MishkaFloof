@@ -18,7 +18,7 @@ This project aims to dockerize a website and set up a web server using Docker. T
 
 
 ### Run the Container
-1. After building the Docker image, run the following command to start a container: 'docker run -d -p 80:80 my-website-image'
+1. After building the Docker image, run the following command to start a container: `docker run -d -p 80:80 my-website-image`
 
 
 ### View the Project Running in the Container
@@ -26,9 +26,7 @@ This project aims to dockerize a website and set up a web server using Docker. T
 - Navigate to `http://44.222.7.138:80` to view the website running in the Docker container (the ip address is my aws instance ip).
 
 ## Additional Notes
-- If you encounter any issues during installation or running the project, refer to Docker's documentation or seek assistance from the community.
+- If you encounter any issues during installation or running the project, refer to Docker's documentation.
 - Make sure to customize the Dockerfile and website content according to your specific requirements.
-
-
 
 
