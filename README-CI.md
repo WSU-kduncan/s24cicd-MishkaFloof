@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-Part 1 - Dockerize it
-
-=======
 ## Part 1 - Dockerize it
->>>>>>> fb72b0c2510c22b70265144138abb79886cebf7d
 ## CI Project Overview
 This project aims to dockerize a website and set up a web server using Docker. The website files will be served using nginx as the web server.
 
 ## Run Project
 ### Install Docker + Dependencies
-<<<<<<< HEAD
 - Using an EC2 instance:
-=======
-- If using an EC2 instance:
->>>>>>> fb72b0c2510c22b70265144138abb79886cebf7d
 
 ```
 # Add Docker's official GPG key:
@@ -73,11 +64,7 @@ In your GitHub repository, create a directory named .github/workflows.
 Inside this directory, create a YAML file (e.g., docker-build-push.yml) for your GitHub Actions workflow.
 Configure the workflow to build and push your Docker image to DockerHub. Below is an example workflow YAML:
 
-<<<<<<< HEAD
-=======
 ```
->>>>>>> fb72b0c2510c22b70265144138abb79886cebf7d
-
 name: Build and Push Docker Image
 
 on:
@@ -104,11 +91,8 @@ jobs:
           repository: your-dockerhub-username/your-repository-name
           tag_with_ref: true
 
-
-<<<<<<< HEAD
-=======
 ```
->>>>>>> fb72b0c2510c22b70265144138abb79886cebf7d
+
 
 Replace your-dockerhub-username/your-repository-name with your DockerHub username and the name of your DockerHub repository.
 
@@ -147,7 +131,7 @@ Two secrets are set for this project: DOCKER_USERNAME and DOCKER_PASSWORD.
 Behavior of GitHub Workflow
 This GitHub workflow builds and pushes a Docker image to DockerHub whenever changes are pushed to the main branch.
 Custom variables in the workflow are DOCKER_USERNAME and DOCKER_PASSWORD, which are used for authentication with DockerHub.
->>>>>>> fb72b0c2510c22b70265144138abb79886cebf7d
+
 
 
 
