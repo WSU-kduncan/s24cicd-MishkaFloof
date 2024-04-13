@@ -71,7 +71,6 @@ jobs:
 SSH into your EC2 instance and install Docker:
 
 ```
-```bash
 sudo apt-get update
 sudo apt-get install docker.io
 sudo systemctl start docker
