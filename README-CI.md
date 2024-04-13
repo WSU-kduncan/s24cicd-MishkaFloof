@@ -46,7 +46,7 @@ sudo docker run hello-world
 - Make sure to customize the Dockerfile and website content according to your specific requirements.
 
 ## Part 2 - GitHub Actions and DockerHub
-<<<<<<< HEAD
+
 
 Create DockerHub Account
 Go to DockerHub and sign up for an account.
@@ -66,8 +66,6 @@ In your GitHub repository, create a directory named .github/workflows.
 Inside this directory, create a YAML file (e.g., docker-build-push.yml) for your GitHub Actions workflow.
 Configure the workflow to build and push your Docker image to DockerHub. Below is an example workflow YAML:
 
-
-=======
 ### Create DockerHub Account
 
 1. Go to DockerHub and sign up for an account.
@@ -85,7 +83,6 @@ In your GitHub repository, create a directory named `.github/workflows`.
 Inside this directory, create a YAML file (e.g., docker-build-push.yml) for your GitHub Actions workflow.
 Configure the workflow to build and push your Docker image to DockerHub. Below is an example workflow YAML:
 
->>>>>>> 44dfd08916656f5d26e82e5d4b1f14aad354145f
 ```
 name: Build and Push Docker Image
 
@@ -112,11 +109,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: your-dockerhub-username/your-repository-name
           tag_with_ref: true
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 44dfd08916656f5d26e82e5d4b1f14aad354145f
 ```
 
 Replace your-dockerhub-username/your-repository-name with your DockerHub username and the name of your DockerHub repository.
@@ -152,7 +144,6 @@ To set a secret in GitHub, go to your repository Settings > Secrets, and click o
 
 ### Behavior of GitHub Workflow
 This GitHub workflow builds and pushes a Docker image to DockerHub whenever changes are pushed to the main branch.
-<<<<<<< HEAD
   
 Custom variables in the workflow are DOCKERUSERNAME and DOCKERPASSWORD, which are used for authentication with DockerHub.
 
@@ -160,7 +151,6 @@ Two secrets are set for this project: DOCKER_USERNAME and DOCKER_PASSWORD.
 Behavior of GitHub Workflow
 This GitHub workflow builds and pushes a Docker image to DockerHub whenever changes are pushed to the main branch.
 Custom variables in the workflow are DOCKER_USERNAME and DOCKER_PASSWORD, which are used for authentication with DockerHub.
-=======
 * Custom variables in the workflow are `DOCKER_USERNAME` and `DOCKER_PASSWORD`, which are used for authentication with DockerHub.
 * Two secrets are set for this project: `DOCKER_USERNAME` and `DOCKER_PASSWORD`.
 
