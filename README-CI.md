@@ -49,7 +49,7 @@ sudo docker run hello-world
 ### Create DockerHub Account
 
 1. Go to DockerHub and sign up for an account.
-  * Select the Free tier if prompted.
+      * Select the Free tier if prompted.
 2. Once logged in, create a Public Repository on DockerHub.
 3. Set GitHub Secrets
 4. Go to your GitHub repository.
