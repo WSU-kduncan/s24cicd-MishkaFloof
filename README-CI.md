@@ -116,7 +116,7 @@ Tag your image:
 Push your image to DockerHub: 
   * `docker push your-dockerhub-username/your-repository-name:latest`
 
-Link to My DockerHub (Repository)[https://github.com/WSU-kduncan/s24cicd-MishkaFloof/tree/main] 
+Link to [My DockerHub Repository](https://github.com/WSU-kduncan/s24cicd-MishkaFloof/tree/main)
 
 ### Configuring GitHub Secrets
 To set a secret in GitHub, go to your repository Settings > Secrets, and click on "New repository secret".
