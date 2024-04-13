@@ -106,8 +106,9 @@ To authenticate with DockerHub via CLI, use the docker login command:
 I recommend providing your DockerHub username and password as the credentials.
 
 ### How to Push Container Image to DockerHub (without GitHub Actions)
+
 After logging into DockerHub using docker login, build your Docker image: 
-      * `docker build -t your-dockerhub-username/your-image-name .`
+  * `docker build -t your-dockerhub-username/your-image-name .`
       
 Tag your image: 
       * `docker tag your-dockerhub-username/your-image-name your-dockerhub-username/your-repository-name:latest`
