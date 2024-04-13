@@ -100,7 +100,7 @@ Replace your-dockerhub-username/your-repository-name with your DockerHub usernam
 
 ### How to Authenticate with DockerHub via CLI
 To authenticate with DockerHub via CLI, use the docker login command:
-      * `docker login -u your-dockerhub-username -p your-dockerhub-password`
+    * `docker login -u your-dockerhub-username -p your-dockerhub-password`
 
 ### Credentials Recommendation
 I recommend providing your DockerHub username and password as the credentials.
