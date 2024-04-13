@@ -37,3 +37,23 @@ on:
     tags:
       - '*'
 ```
+
+2. Use the docker/metadata-action to generate tags based on your repository metadata:
+
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Generate Docker tags
+        uses: docker/metadata-action@v3
+        with:
+          images: docker.io/yourusername/yourimage
+          tags: |
+            latest
+            ${{ github.ref }}
+
+```
