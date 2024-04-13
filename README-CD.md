@@ -26,3 +26,15 @@ git tag <version>
 git push --tags
 
 ```
+### Task 2: GitHub Action Workflow
+To set up a GitHub Action workflow that runs when a tag is pushed and generates tags for Docker images, follow these steps:
+
+1. Amend your existing GitHub Action workflow or create a new one to trigger on tag events:
+
+```
+on:
+  push:
+    tags:
+      - '*'
+
+```
