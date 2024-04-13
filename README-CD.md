@@ -1,8 +1,12 @@
 ## CD Project Overview
-
 ### What are you doing, why, what tools?
 
 We are implementing Continuous Deployment (CD) for our project to automate the process of deploying new versions of our Docker image to production. This ensures faster delivery of updates and improves overall efficiency. We are using GitHub Actions as our automation tool and Docker Hub as our image repository.
+
+## Behavior of GitHub Workflow
+### What does it do and when?
+
+The GitHub workflow triggers when a tag is pushed to the repository. It uses the docker/metadata-action to generate Docker image tags based on the Git tag version and pushes the images to Docker Hub with tags corresponding to the Git tag version and latest.
 
 ## Part 1 - Semantic Versioning
 ### Task 1: Generating Semantic Version Tag
@@ -57,3 +61,5 @@ jobs:
             ${{ github.ref }}
 
 ```
+
+3. Push images to DockerHub with tags based on your Git tag version and latest.
