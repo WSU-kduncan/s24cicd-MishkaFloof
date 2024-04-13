@@ -65,3 +65,16 @@ jobs:
 3. Push images to DockerHub with tags based on your Git tag version and latest.
 
 ## Part 2 - Deployment
+
+### Step 1: Installing Docker on the Instance
+
+SSH into your EC2 instance and install Docker:
+
+```
+```bash
+sudo apt-get update
+sudo apt-get install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
