@@ -99,17 +99,19 @@ Replace your-dockerhub-username/your-repository-name with your DockerHub usernam
 2. Create a new public repository.
 
 ### How to Authenticate with DockerHub via CLI
-To authenticate with DockerHub via CLI, use the docker login command: `docker login -u your-dockerhub-username -p your-dockerhub-password`
+To authenticate with DockerHub via CLI, use the docker login command:
+      * `docker login -u your-dockerhub-username -p your-dockerhub-password`
 
 ### Credentials Recommendation
 I recommend providing your DockerHub username and password as the credentials.
 
 ### How to Push Container Image to DockerHub (without GitHub Actions)
-After logging into DockerHub using docker login, build your Docker image: `docker build -t your-dockerhub-username/your-image-name .`
-
-Tag your image: `docker tag your-dockerhub-username/your-image-name your-dockerhub-username/your-repository-name:latest`
-
-Push your image to DockerHub: `docker push your-dockerhub-username/your-repository-name:latest`
+After logging into DockerHub using docker login, build your Docker image: 
+      * `docker build -t your-dockerhub-username/your-image-name .`
+Tag your image: 
+      * `docker tag your-dockerhub-username/your-image-name your-dockerhub-username/your-repository-name:latest`
+Push your image to DockerHub: 
+      * `docker push your-dockerhub-username/your-repository-name:latest`
 
 Link to Your DockerHub Repository
 Provide a link to your DockerHub repository.
