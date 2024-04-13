@@ -4,11 +4,30 @@ This project aims to dockerize a website and set up a web server using Docker. T
 
 ## Run Project Locally
 ### Install Docker + Dependencies
-- If using WSL2:
-  - Install Docker Desktop for Windows.
-  - Enable WSL2 integration in Docker Desktop.
 - If using an EC2 instance:
-  - Follow Docker's installation guide for Linux.
+
+```
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+# Install latest version
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Verify install
+sudo docker run hello-world
+
+```
 
 ### Build Docker Image
 1. Clone this repository to your local machine.
