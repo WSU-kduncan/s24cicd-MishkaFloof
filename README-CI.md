@@ -47,22 +47,20 @@ sudo docker run hello-world
 
 ## Part 2 - GitHub Actions and DockerHub
 
+### Create DockerHub Account
+1. Go to DockerHub and sign up for an account.
+      * Select the Free tier if prompted.
+2. Once logged in, create a Public Repository on DockerHub.
+3. Set GitHub Secrets
+4. Go to your GitHub repository.
+5. Navigate to Settings > Secrets.
+6. Click on "New repository secret".
+      * Add two secrets: DOCKERUSERNAME and DOCKERPASSWORD, with your DockerHub username and password respectively.
+      * Add two secrets: DOCKER_USERNAME and DOCKER_PASSWORD, with your DockerHub username and password respectively.
 
-Create DockerHub Account
-Go to DockerHub and sign up for an account.
-Select the Free tier if prompted.
-Once logged in, create a Public Repository on DockerHub.
-Set GitHub Secrets
-Go to your GitHub repository.
-Navigate to Settings > Secrets.
-Click on "New repository secret".
-<<<<<<< HEAD
-Add two secrets: DOCKERUSERNAME and DOCKERPASSWORD, with your DockerHub username and password respectively.
+### Set up GitHub Actions Workflow
+1. In your GitHub repository, create a directory named `.github/workflows`.
 
-Add two secrets: DOCKER_USERNAME and DOCKER_PASSWORD, with your DockerHub username and password respectively.
-
-Set up GitHub Actions Workflow
-In your GitHub repository, create a directory named .github/workflows.
 Inside this directory, create a YAML file (e.g., docker-build-push.yml) for your GitHub Actions workflow.
 Configure the workflow to build and push your Docker image to DockerHub. Below is an example workflow YAML:
 
@@ -158,5 +156,3 @@ Custom variables in the workflow are DOCKER_USERNAME and DOCKER_PASSWORD, which 
 ## Part 3 - Diagramming
 
 ![Part3](https://github.com/WSU-kduncan/s24cicd-MishkaFloof/assets/147094450/b34b6d8f-13da-46b1-89b0-24e858fd8cbe)
-
->>>>>>> 44dfd08916656f5d26e82e5d4b1f14aad354145f
