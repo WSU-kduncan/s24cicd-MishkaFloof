@@ -55,8 +55,8 @@ sudo docker run hello-world
 4. Go to your GitHub repository.
 5. Navigate to Settings > Secrets.
 6. Click on "New repository secret".
-      * Add two secrets: DOCKERUSERNAME and DOCKERPASSWORD, with your DockerHub username and password respectively.
-      * Add two secrets: DOCKER_USERNAME and DOCKER_PASSWORD, with your DockerHub username and password respectively.
+      * Add two secrets: `DOCKERUSERNAME` and `DOCKERPASSWORD`, with your DockerHub username and password respectively.
+      * Add two secrets: `DOCKER_USERNAME` and `DOCKER_PASSWORD`, with your DockerHub username and password respectively.
 
 ### Set up GitHub Actions Workflow
 1. In your GitHub repository, create a directory named `.github/workflows`.
