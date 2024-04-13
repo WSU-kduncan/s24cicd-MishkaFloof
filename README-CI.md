@@ -45,20 +45,21 @@ sudo docker run hello-world
 - If you encounter any issues during installation or running the project, refer to Docker's documentation.
 - Make sure to customize the Dockerfile and website content according to your specific requirements.
 
+## Part 2 - GitHub Actions and DockerHub
+### Create DockerHub Account
 
-Create DockerHub Account
-Go to DockerHub and sign up for an account.
-Select the Free tier if prompted.
-Once logged in, create a Public Repository on DockerHub.
-Set GitHub Secrets
-Go to your GitHub repository.
-Navigate to Settings > Secrets.
-Click on "New repository secret".
-<<<<<<< HEAD
-Add two secrets: DOCKERUSERNAME and DOCKERPASSWORD, with your DockerHub username and password respectively.
-=======
-Add two secrets: DOCKER_USERNAME and DOCKER_PASSWORD, with your DockerHub username and password respectively.
->>>>>>> fb72b0c2510c22b70265144138abb79886cebf7d
+1. Go to DockerHub and sign up for an account.
+  * Select the Free tier if prompted.
+2. Once logged in, create a Public Repository on DockerHub.
+3. Set GitHub Secrets
+4. Go to your GitHub repository.
+5. Navigate to Settings > Secrets.
+6. Click on "New repository secret".
+
+Add two secrets: `DOCKERUSERNAME` and `DOCKERPASSWORD`, with your DockerHub username and password respectively.
+
+Add two secrets: `DOCKER_USERNAME` and `DOCKER_PASSWORD`, with your DockerHub username and password respectively.
+
 Set up GitHub Actions Workflow
 In your GitHub repository, create a directory named .github/workflows.
 Inside this directory, create a YAML file (e.g., docker-build-push.yml) for your GitHub Actions workflow.
