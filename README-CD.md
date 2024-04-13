@@ -77,3 +77,26 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
+### Step 2: Pulling and Running Container from DockerHub Image
+
+Pull the Docker image from DockerHub and run the container:
+```
+sudo docker pull yourusername/yourimage
+sudo docker run -d -p 80:80 yourusername/yourimage
+```
+
+### Step 3: Creating Container Restart Script
+
+Create a script named container_restart.sh:
+```
+#!/bin/bash
+sudo docker pull yourusername/yourimage
+sudo docker stop $(sudo docker ps -q --filter ancestor=yourusername/yourimage)
+sudo docker rm $(sudo docker ps -aq --filter ancestor=yourusername/yourimage)
+sudo docker run -d -p 80:80 yourusername/yourimage
+```
+Make the script executable:
+```
+chmod +x container_restart.sh
+```
+
