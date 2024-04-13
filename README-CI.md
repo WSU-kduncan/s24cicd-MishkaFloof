@@ -46,6 +46,7 @@ sudo docker run hello-world
 - Make sure to customize the Dockerfile and website content according to your specific requirements.
 
 ## Part 2 - GitHub Actions and DockerHub
+<<<<<<< HEAD
 
 Create DockerHub Account
 Go to DockerHub and sign up for an account.
@@ -66,6 +67,25 @@ Inside this directory, create a YAML file (e.g., docker-build-push.yml) for your
 Configure the workflow to build and push your Docker image to DockerHub. Below is an example workflow YAML:
 
 
+=======
+### Create DockerHub Account
+
+1. Go to DockerHub and sign up for an account.
+      * Select the Free tier if prompted.
+2. Once logged in, create a Public Repository on DockerHub.
+3. Set GitHub Secrets
+4. Go to your GitHub repository.
+5. Navigate to Settings > Secrets.
+6. Click on "New repository secret".
+      * Add two secrets: `DOCKERUSERNAME` and `DOCKERPASSWORD`, with your DockerHub username and password respectively.
+      * Add two secrets: `DOCKER_USERNAME` and `DOCKER_PASSWORD`, with your DockerHub username and password respectively.
+
+### Set up GitHub Actions Workflow
+In your GitHub repository, create a directory named `.github/workflows`.
+Inside this directory, create a YAML file (e.g., docker-build-push.yml) for your GitHub Actions workflow.
+Configure the workflow to build and push your Docker image to DockerHub. Below is an example workflow YAML:
+
+>>>>>>> 44dfd08916656f5d26e82e5d4b1f14aad354145f
 ```
 name: Build and Push Docker Image
 
@@ -93,38 +113,46 @@ jobs:
           repository: your-dockerhub-username/your-repository-name
           tag_with_ref: true
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 44dfd08916656f5d26e82e5d4b1f14aad354145f
 ```
 
 Replace your-dockerhub-username/your-repository-name with your DockerHub username and the name of your DockerHub repository.
 
-Documentation in README-CI.md
-Add the following to your README-CI.md:
+### Process to Create Public Repo in DockerHub
+1. Go to DockerHub and sign in.
+2. Create a new public repository.
 
-Process to Create Public Repo in DockerHub
-Go to DockerHub and sign in.
-Create a new public repository.
-How to Authenticate with DockerHub via CLI
-To authenticate with DockerHub via CLI, use the docker login command: `docker login -u your-dockerhub-username -p your-dockerhub-password`
+### How to Authenticate with DockerHub via CLI
+To authenticate with DockerHub via CLI, use the docker login command:
+    * `docker login -u your-dockerhub-username -p your-dockerhub-password`
 
-Credentials Recommendation
+### Credentials Recommendation
 I recommend providing your DockerHub username and password as the credentials.
-How to Push Container Image to DockerHub (without GitHub Actions)
-After logging into DockerHub using docker login, build your Docker image: `docker build -t your-dockerhub-username/your-image-name .`
 
-Tag your image: `docker tag your-dockerhub-username/your-image-name your-dockerhub-username/your-repository-name:latest`
+### How to Push Container Image to DockerHub (without GitHub Actions)
 
-Push your image to DockerHub: `docker push your-dockerhub-username/your-repository-name:latest`
+After logging into DockerHub using docker login, build your Docker image: 
+  * `docker build -t your-dockerhub-username/your-image-name .`
+      
+Tag your image: 
+  * `docker tag your-dockerhub-username/your-image-name your-dockerhub-username/your-repository-name:latest`
+      
+Push your image to DockerHub: 
+  * `docker push your-dockerhub-username/your-repository-name:latest`
 
-Link to Your DockerHub Repository
-Provide a link to your DockerHub repository.
-Configuring GitHub Secrets
+Link to [My DockerHub Repository](https://github.com/WSU-kduncan/s24cicd-MishkaFloof/tree/main)
+
+### Configuring GitHub Secrets
 To set a secret in GitHub, go to your repository Settings > Secrets, and click on "New repository secret".
-Secrets Set for This Project
-<<<<<<< HEAD
-Two secrets are set for this project: DOCKERUSERNAME and DOCKERPASSWORD.
-Behavior of GitHub Workflow
+* Secrets Set for This Project
+      * Two secrets are set for this project: `DOCKERUSERNAME` and `DOCKERPASSWORD`.
+
+### Behavior of GitHub Workflow
 This GitHub workflow builds and pushes a Docker image to DockerHub whenever changes are pushed to the main branch.
+<<<<<<< HEAD
   
 Custom variables in the workflow are DOCKERUSERNAME and DOCKERPASSWORD, which are used for authentication with DockerHub.
 
@@ -132,3 +160,13 @@ Two secrets are set for this project: DOCKER_USERNAME and DOCKER_PASSWORD.
 Behavior of GitHub Workflow
 This GitHub workflow builds and pushes a Docker image to DockerHub whenever changes are pushed to the main branch.
 Custom variables in the workflow are DOCKER_USERNAME and DOCKER_PASSWORD, which are used for authentication with DockerHub.
+=======
+* Custom variables in the workflow are `DOCKER_USERNAME` and `DOCKER_PASSWORD`, which are used for authentication with DockerHub.
+* Two secrets are set for this project: `DOCKER_USERNAME` and `DOCKER_PASSWORD`.
+
+
+## Part 3 - Diagramming
+
+![Part3](https://github.com/WSU-kduncan/s24cicd-MishkaFloof/assets/147094450/b34b6d8f-13da-46b1-89b0-24e858fd8cbe)
+
+>>>>>>> 44dfd08916656f5d26e82e5d4b1f14aad354145f

@@ -65,3 +65,98 @@ jobs:
 3. Push images to DockerHub with tags based on your Git tag version and latest.
 
 ## Part 2 - Deployment
+
+### Step 1: Installing Docker on the Instance
+
+SSH into your EC2 instance and install Docker:
+
+```
+sudo apt-get update
+sudo apt-get install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+### Step 2: Pulling and Running Container from DockerHub Image
+
+Pull the Docker image from DockerHub and run the container:
+```
+sudo docker pull yourusername/yourimage
+sudo docker run -d -p 80:80 yourusername/yourimage
+```
+
+### Step 3: Creating Container Restart Script
+
+Create a script named container_restart.sh:
+```
+#!/bin/bash
+sudo docker pull yourusername/yourimage
+sudo docker stop $(sudo docker ps -q --filter ancestor=yourusername/yourimage)
+sudo docker rm $(sudo docker ps -aq --filter ancestor=yourusername/yourimage)
+sudo docker run -d -p 80:80 yourusername/yourimage
+```
+Make the script executable:
+```
+chmod +x container_restart.sh
+```
+
+### Step 4: Setting up Webhook to Receive Messages
+
+Download and install adnanh's webhook:
+```
+wget https://github.com/adnanh/webhook/releases/download/2.8.0/webhook-linux-amd64.tar.gz
+tar -xvf webhook-linux-amd64.tar.gz
+cd webhook-linux-amd64
+```
+
+Start the webhook:
+```
+./webhook -hooks /path/to/hooks.json -verbose
+```
+
+Ensure the webhook starts automatically after instance reboot by adding it to startup scripts.
+
+Create a new service file named webhook.service:
+```
+sudo vim /etc/systemd/system/webhook.service
+```
+
+Add the following content to the webhook.service file:
+```
+[Unit]
+Description=Webhook Service
+After=network.target
+
+[Service]
+ExecStart=/path/to/webhook/webhook -hooks /path/to/hooks.json -verbose
+Restart=always
+User=yourusername
+Group=yourgroupname
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Reload systemd and Enable the Service:
+Reload the systemd daemon to read the new service file:
+```
+sudo systemctl daemon-reload
+```
+
+Enable the webhook service to start on boot:
+```
+sudo systemctl enable webhook.service
+```
+
+Start the webhook service:
+```
+sudo systemctl start webhook.service
+```
+
+## Part 3 - Diagramming
+
+
+
+
+
+
