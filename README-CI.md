@@ -92,11 +92,9 @@ jobs:
 
 ```
 
-
 Replace your-dockerhub-username/your-repository-name with your DockerHub username and the name of your DockerHub repository.
 
-Documentation in README-CI.md
-Add the following to your README-CI.md:
+
 
 Process to Create Public Repo in DockerHub
 Go to DockerHub and sign in.
@@ -115,22 +113,17 @@ Push your image to DockerHub: `docker push your-dockerhub-username/your-reposito
 
 Link to Your DockerHub Repository
 Provide a link to your DockerHub repository.
-Configuring GitHub Secrets
+
+### Configuring GitHub Secrets
 To set a secret in GitHub, go to your repository Settings > Secrets, and click on "New repository secret".
-Secrets Set for This Project
-<<<<<<< HEAD
-Two secrets are set for this project: DOCKERUSERNAME and DOCKERPASSWORD.
-Behavior of GitHub Workflow
-This GitHub workflow builds and pushes a Docker image to DockerHub whenever changes are pushed to the main branch.
-  
-Custom variables in the workflow are DOCKERUSERNAME and DOCKERPASSWORD, which are used for authentication with DockerHub.
+* Secrets Set for This Project
+      * Two secrets are set for this project: `DOCKERUSERNAME` and `DOCKERPASSWORD`.
 
-=======
-Two secrets are set for this project: DOCKER_USERNAME and DOCKER_PASSWORD.
-Behavior of GitHub Workflow
-This GitHub workflow builds and pushes a Docker image to DockerHub whenever changes are pushed to the main branch.
-Custom variables in the workflow are DOCKER_USERNAME and DOCKER_PASSWORD, which are used for authentication with DockerHub.
 
+### Behavior of GitHub Workflow
+This GitHub workflow builds and pushes a Docker image to DockerHub whenever changes are pushed to the main branch.
+* Custom variables in the workflow are `DOCKER_USERNAME` and `DOCKER_PASSWORD`, which are used for authentication with DockerHub.
+* Two secrets are set for this project: `DOCKER_USERNAME` and `DOCKER_PASSWORD`.
 
 
 
