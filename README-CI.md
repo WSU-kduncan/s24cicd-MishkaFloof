@@ -108,13 +108,14 @@ I recommend providing your DockerHub username and password as the credentials.
 ### How to Push Container Image to DockerHub (without GitHub Actions)
 After logging into DockerHub using docker login, build your Docker image: 
       * `docker build -t your-dockerhub-username/your-image-name .`
+      
 Tag your image: 
       * `docker tag your-dockerhub-username/your-image-name your-dockerhub-username/your-repository-name:latest`
+      
 Push your image to DockerHub: 
       * `docker push your-dockerhub-username/your-repository-name:latest`
 
-Link to Your DockerHub Repository
-Provide a link to your DockerHub repository.
+Link to (My DockerHub Repository)[https://github.com/WSU-kduncan/s24cicd-MishkaFloof/tree/main] 
 
 ### Configuring GitHub Secrets
 To set a secret in GitHub, go to your repository Settings > Secrets, and click on "New repository secret".
