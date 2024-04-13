@@ -1,0 +1,16 @@
+{
+  "hooks": [
+    {
+      "id": "deploy",
+      "execute-command": "/home/ubuntu/s24cicd-MishkaFloof/deployment/containerr_restart.sh",
+      "command-working-directory": "/home/ubuntu/s24cicd-MishkaFloof/deployment",
+      "trigger-rule": {
+        "match": {
+          "type": "value",
+          "value": "push"
+        }
+      }
+    }
+  ]
+}
+
