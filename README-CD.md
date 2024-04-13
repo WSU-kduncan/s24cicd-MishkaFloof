@@ -100,3 +100,63 @@ Make the script executable:
 chmod +x container_restart.sh
 ```
 
+### Step 4: Setting up Webhook to Receive Messages
+
+Download and install adnanh's webhook:
+```
+wget https://github.com/adnanh/webhook/releases/download/2.8.0/webhook-linux-amd64.tar.gz
+tar -xvf webhook-linux-amd64.tar.gz
+cd webhook-linux-amd64
+```
+
+Start the webhook:
+```
+./webhook -hooks /path/to/hooks.json -verbose
+```
+
+Ensure the webhook starts automatically after instance reboot by adding it to startup scripts.
+
+Create a new service file named webhook.service:
+```
+sudo vim /etc/systemd/system/webhook.service
+```
+
+Add the following content to the webhook.service file:
+```
+[Unit]
+Description=Webhook Service
+After=network.target
+
+[Service]
+ExecStart=/path/to/webhook/webhook -hooks /path/to/hooks.json -verbose
+Restart=always
+User=yourusername
+Group=yourgroupname
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Reload systemd and Enable the Service:
+Reload the systemd daemon to read the new service file:
+```
+sudo systemctl daemon-reload
+```
+
+Enable the webhook service to start on boot:
+```
+sudo systemctl enable webhook.service
+```
+
+Start the webhook service:
+```
+sudo systemctl start webhook.service
+```
+
+
+
+
+
+
+
+
