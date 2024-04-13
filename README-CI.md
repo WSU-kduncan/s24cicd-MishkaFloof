@@ -118,6 +118,7 @@ Secrets Set for This Project
 Two secrets are set for this project: DOCKERUSERNAME and DOCKERPASSWORD.
 Behavior of GitHub Workflow
 This GitHub workflow builds and pushes a Docker image to DockerHub whenever changes are pushed to the main branch.
+  
 Custom variables in the workflow are DOCKERUSERNAME and DOCKERPASSWORD, which are used for authentication with DockerHub.
 
 
