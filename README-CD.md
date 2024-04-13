@@ -63,3 +63,5 @@ jobs:
 ```
 
 3. Push images to DockerHub with tags based on your Git tag version and latest.
+
+## Part 2 - Deployment
