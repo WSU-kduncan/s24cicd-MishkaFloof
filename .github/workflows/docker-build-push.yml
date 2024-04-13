@@ -23,7 +23,7 @@ jobs:
       - name: Generate Docker tags
         uses: docker/metadata-action@v3
         with: 
-          images: docker.io/mishkafloof/Dockerfile
+          images: docker.io/mishkafloof/project4
           tags: |
             latest
             ${{ github.ref }}
