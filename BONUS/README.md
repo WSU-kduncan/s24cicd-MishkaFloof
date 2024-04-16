@@ -21,6 +21,13 @@ graph TD;
 ```
 #### Descreiption 
 
+1. **DockerHub Repository:** The DockerHub repository contains the latest Docker images for your web application services.
+2. **Cron Job:** A cron job is scheduled to run periodically on each host.
+3. **update-check.sh Script:** The cron job executes the `update-check.sh` script, which checks the DockerHub repository for updates.
+4. **New Image Available:** If a new image is available on DockerHub, the script pulls the latest image.
+5. **update-containers.sh Script:** The script then updates the Docker containers using the `update-containers.sh` script.
+6. **Docker Containers:** The Docker containers are restarted with the latest image.
+
 ### Documentation
 #### Implementation Overview:
 
