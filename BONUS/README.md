@@ -31,6 +31,11 @@ graph TD;
 ### Documentation
 #### Implementation Overview:
 
+* The automation process involves using two bash scripts (`update-check.sh` and `update-containers.sh`) and a cron job to periodically check for updates in the DockerHub repository and update Docker containers accordingly.
+* The `update-check.sh` script checks for updates in the DockerHub repository and pulls the latest image if available.
+* If a new image is pulled, the script triggers the `update-containers.sh` script to update the Docker containers with the latest image.
+* The cron job schedules the execution of the `update-check.sh` script at regular intervals, ensuring that the Docker containers are kept up-to-date.
+
 #### Steps to Recreate: 
 
 
