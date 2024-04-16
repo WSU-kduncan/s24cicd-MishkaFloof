@@ -38,5 +38,25 @@ graph TD;
 
 #### Steps to Recreate: 
 
+1. **Create Bash Scripts:**
+    * Create the `update-check.sh` and `update-containers.sh` bash scripts with the provided code.
+    * Ensure both scripts have execute permissions (`chmod +x update-check.sh update-containers.sh`).
+2. **Set Up Cron Job:**
+    * Open the crontab file for editing using `crontab -e`.
+    * Add the following line to schedule the `update-check.shq` script to run every hour:
+      ```
+      0 * * * * /home/ubuntu/s24cicd-MishkaFloof/BONUS/update-check.sh >> /home/ubuntu/s24cicd-MishkaFloof/BONUS/update-check.log 2>&1 
+      ```
+Replace /path/to/update-check.sh with the actual path to your update-check.sh script.
+Optionally, specify a log file path to redirect the output of the cron job for monitoring purposes.
+Configure Docker Containers:
 
+Ensure that your Docker containers are configured to use the latest image from DockerHub.
+Update your docker-compose.yml file to specify the image tag or use the latest tag to pull the latest image automatically.
+Test the Automation:
+
+Test the automation by pushing a new image to your DockerHub repository.
+Monitor the cron job logs (update-check.log) to verify that the update process is triggered successfully.
+Check the Docker container logs or status to ensure that the containers are updated with the latest image.
+Note: Ensure that Docker is installed and configured properly on your hosts before setting up the automation process.
 
