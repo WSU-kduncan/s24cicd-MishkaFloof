@@ -120,3 +120,11 @@ Resources:
           DeleteOnTermination: 'true'
           SubnetId: !Ref PublicSubnet
           PrivateIpAddress: 172.18.0.16
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash -xe
+          hostnamectl set-hostname loadbalancer-instance
+          yum update -y
+          amazon-linux-extras install -y docker
+          systemctl start docker
+          systemctl enable docker
