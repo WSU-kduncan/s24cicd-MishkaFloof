@@ -19,7 +19,7 @@ graph TD;
     New_Image -->|No| Cron_Job;
     Update_Containers_Script -->|Updates Containers| Docker_Containers;
 ```
-#### Descreiption 
+#### Description:
 
 1. **DockerHub Repository:** The DockerHub repository contains the latest Docker images for your web application services.
 2. **Cron Job:** A cron job is scheduled to run periodically on each host.
