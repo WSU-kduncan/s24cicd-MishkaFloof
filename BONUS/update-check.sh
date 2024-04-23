@@ -12,7 +12,7 @@ NEW_IMAGE=$(docker inspect --format='{{.RepoTags}}' $(docker images $REPO_NAME -
 
 if [[ "$CURRENT_IMAGE" != "$NEW_IMAGE" ]]; then
     echo "New image available. Restarting containers..."
-    # Restart Docker containers
+    # Restart Docker containers, including load balancer
     docker-compose -f /home/ubuntu/s24cicd-MishkaFloof/BONUS/BONUSTemplate.yml restart
 else
     echo "No new image available."
