@@ -11,6 +11,7 @@ graph TD;
     New_Image["New Image Available?"];
     Update_Containers_Script["update-containers.sh Script"];
     Docker_Containers["Docker Containers"];
+    Load_Balancer["Load Balancer"];
 
     DockerHub_Repo -->|Contains Latest Images| Update_Check_Script;
     Cron_Job -->|Periodically Executes| Update_Check_Script;
@@ -18,6 +19,9 @@ graph TD;
     New_Image -->|Yes| Update_Containers_Script;
     New_Image -->|No| Cron_Job;
     Update_Containers_Script -->|Updates Containers| Docker_Containers;
+    Update_Containers_Script -->|Updates Load Balancer| Load_Balancer;
+    Docker_Containers -->|Serves traffic| Load_Balancer;
+
 ```
 #### Description:
 
