@@ -83,6 +83,12 @@ Resources:
     Properties:
       SubnetId: !Ref PublicSubnet
       RouteTableId: !Ref RouteTable
+  UbuntuIPAddress:
+    Type: 'AWS::EC2::EIP'
+    DependsOn: AttachGateway
+    Properties:
+      Domain: vpc
+      InstanceId: !Ref LoadBalancerInstance
   LoadBalancerSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
@@ -124,12 +130,109 @@ Resources:
         Fn::Base64: |
           #!/bin/bash -xe
           hostnamectl set-hostname loadbalancer-instance
-          yum update -y
-          amazon-linux-extras install -y docker
-          systemctl start docker
-          systemctl enable docker
-          # Install Docker Compose
-          sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-          # Verify Docker Compose installation
-          docker-compose --version
+          yum update -y && \
+          yum install -y haproxy && \
+          echo "This is from the Load Balancer instance" > /home/ec2-user/hello.txt && \
+          reboot
+  WebServerSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      VpcId: !Ref VPC
+      GroupDescription: Allow traffic for web servers
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: !Ref SSHLocation
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '443'
+          ToPort: '443'
+          CidrIp: 0.0.0.0/0
+  WebServerInstance1:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: !FindInMap [AWSRegionAMI, !Ref "AWS::Region", HVM64]
+      InstanceType: t2.micro
+      KeyName: !Ref KeyName
+      Tags:
+        - Key: Application
+          Value: !Ref 'AWS::StackId'
+        - Key: Name
+          Value: WebServerInstance1
+      NetworkInterfaces:
+        - GroupSet:
+            - !Ref WebServerSecurityGroup
+          AssociatePublicIpAddress: 'false'
+          DeviceIndex: '0'
+          DeleteOnTermination: 'true'
+          SubnetId: !Ref PrivateSubnet
+          PrivateIpAddress: 172.18.1.11
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash -xe
+          hostnamectl set-hostname webserver-instance1
+          yum update -y && \
+          yum install -y httpd && \
+          echo "This is from WebServer Instance 1" > /var/www/html/index.html && \
+          systemctl enable httpd && \
+          reboot
+  WebServerInstance2:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: !FindInMap [AWSRegionAMI, !Ref "AWS::Region", HVM64]
+      InstanceType: t2.micro
+      KeyName: !Ref KeyName
+      Tags:
+        - Key: Application
+          Value: !Ref 'AWS::StackId'
+        - Key: Name
+          Value: WebServerInstance2
+      NetworkInterfaces:
+        - GroupSet:
+            - !Ref WebServerSecurityGroup
+          AssociatePublicIpAddress: 'false'
+          DeviceIndex: '0'
+          DeleteOnTermination: 'true'
+          SubnetId: !Ref PrivateSubnet
+          PrivateIpAddress: 172.18.1.12
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash -xe
+          hostnamectl set-hostname webserver-instance2
+          yum update -y && \
+          yum install -y httpd && \
+          echo "This is from WebServer Instance 2" > /var/www/html/index.html && \
+          systemctl enable httpd && \
+          reboot
+  WebServerInstance3:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: !FindInMap [AWSRegionAMI, !Ref "AWS::Region", HVM64]
+      InstanceType: t2.micro
+      KeyName: !Ref KeyName
+      Tags:
+        - Key: Application
+          Value: !Ref 'AWS::StackId'
+        - Key: Name
+          Value: WebServerInstance3
+      NetworkInterfaces:
+        - GroupSet:
+            - !Ref WebServerSecurityGroup
+          AssociatePublicIpAddress: 'false'
+          DeviceIndex: '0'
+          DeleteOnTermination: 'true'
+          SubnetId: !Ref PrivateSubnet
+          PrivateIpAddress: 172.18.1.13
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash -xe
+          hostnamectl set-hostname webserver-instance3
+          yum update -y && \
+          yum install -y httpd && \
+          echo "This is from WebServer Instance 3" > /var/www/html/index.html && \
+          systemctl enable httpd && \
+          reboot
