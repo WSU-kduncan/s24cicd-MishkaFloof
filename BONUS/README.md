@@ -49,12 +49,8 @@ graph TD;
 2. Set Up Cron Job:
     * Open the crontab file for editing using `crontab -e`.
     * Add the following line to schedule the `update-check.sh` script to run every hour:
-```
-0 * * * * /home/ubuntu/s24cicd-MishkaFloof/BONUS/update-check.sh >> /home/ubuntu/s24cicd-MishkaFloof/BONUS/update-check.log 2>&1
-
-```
-
-   * Replace `/home/ubuntu/s24cicd-MishkaFloof/BONUS/update-check.sh` with the actual path to your update-check.sh script.
+    `0 * * * * /home/ubuntu/s24cicd-MishkaFloof/BONUS/update-check.sh >> /home/ubuntu/s24cicd-MishkaFloof/BONUS/update-check.log 2>&1`
+    * Replace `/home/ubuntu/s24cicd-MishkaFloof/BONUS/update-check.sh` with the actual path to your update-check.sh script.
     * Optionally, specify a log file path to redirect the output of the cron job for monitoring purposes.
 
 3. Configure Docker Containers:
